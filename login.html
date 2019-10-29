@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title data-bind="text: $data.title">Giriş Yap</title>
+    <link rel="shortcut icon" href="img/logo.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+    <link href="login.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <div class="row">
+                <div style="float: left; width: 50%;" class="row_yazı">
+                <!--<img style="height: 20px; width: 20px;padding-left: 50px;" src="img/icons-delivery.png">-->
+                   <span style="color:#e0119d; font-size:12px; padding-left: 50px;opacity: .72;">75 TL üzeri alışverişlerinizde KARGO BEDAVA!</span>
+                </div>
+                <div class="row_list" >
+                        <div class="dropdown">
+                            <button class="dropbtn"><img style="width: 30px; height: 30px; float: left; margin-right: 5%;" src="img/meme-kanseri-tooltip.png"></button>
+                            <div class="dropdown-content">
+                                <div >
+                                <img class="tooltip-image"src="img/meme-kanseri.png">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="list">
+                        <a class="beauty" href="https://www.gratisbeauty.com/"><img style="width: 25px; height: 25px;" src="img/gratis-beauty.png"> Gratis Beauty</a>
+                        <a class="card" href="#"><img style="width: 25px; height: 25px;"src="img/icons-card.png">Kart</a>
+                        <a class="stores" href="#"><img style="width: 25px; height: 25px;" src="img/icons-store.png">Mağazalarımız</a>
+                        <a class="help" href="#"><img style="width: 20px; height: 20px;" src="img/icons-help.png">Yardım ve Destek</a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="container">
+                    <div class="left-content">
+                        <a href="index.html" class="header-logo">
+                            <img src="img/logo-big.png" alt="Gratis">
+                        </a>
+                        <ul style="margin-left: 18px;"class="links">
+                            <li><a href="#">Markalar</a></li>
+                            <li><a style="margin-left: 20px;"href="#">Kampanyalar</a></li>
+                        </ul>
+                    </div>
+                    <div class="rigt-content" style="padding-left: 40px;">
+                        <div class="search-area">
+                            <div class="search-box">
+                                <input type="search" placeholder="what are you looking for?">
+                                <span class="search-icon">
+                                    <button type="submit"><img src="img/search.png"></button>
+                                </span>
+                            </div>
+                            <div class="login-button">
+                                <a href="#" class="login">
+                                    <img src="img/profile.png" alt="profile">
+                                    <span class="high-text">Giriş Yap</span>
+                                    <span class="low-text">Üye Ol</span>
+                                </a>
+                                <div class="drop-content">
+                                    <i class="caret"></i>
+                                    <ul class="logged-drop">
+                                        <li  class="highlighted">
+                                            <a href="#" style="font-weight: bold; color: #470f72; border-color: #fff;">Giriş Yap</a>
+                                        </li>
+                                        <li class="highlighted">
+                                            <a href="register.html" style="font-weight: bold; color: #470f72; border-color: #fff;">Üye Ol</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Siparişlerim</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bildirimlerim</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ayarlarım</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mesajlarım</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Favorilerim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="icons">
+                                <li>
+                                    <a class="favorites">
+                                        <img style="width: 26px; height: 26px;" class="heart" src="img/icons-heart.png">
+                                    </a>
+                                </li>
+                                <div style="width: 2px; height: 28px; float: left;background:#000;opacity: .15;" class="before">.</div>
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><img style="width: 30px; height: 30px;" src="img/icons-basket.png"></button>
+                                            <div style="width: 305px; height: 129;" class="dropdown-content options-wrapper">
+                                                <div class="pricing">
+                                                <span class="text" >0 Ürün Fiyatı</span>
+                                                <g-price class="money">
+                                                    <span class="gr-price" >
+                                                        <span class="gr-price__amount">0</span>
+                                                        <span class="gr-price__fractional">,00 </span>
+                                                        <span class="gr-price__currency" >TL</span>
+                                                    </span>
+                                                </g-price>
+                                            </div>
+                                            <a href="/cart" class="round-btns empty" >Sepete Git</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-alt">
+                <nav class="header-nav">
+                <div class="container">
+                    <ul class="nav-list">
+                       <li>
+                            <a href="#">Makyaj</a>
+                        </li>
+                        <li>
+                            <a href="#">Cilt Bakım</a>
+                        </li>
+                        <li>
+                            <a href="#">Saç Bakım</a>
+                        </li>
+                        <li>
+                            <a href="#">Sağlık &amp; Hijyen</a>
+                        </li>
+                        <li>
+                            <a href="#">Parfüm &amp; Deodorant</a>
+                        </li>
+                        <li>
+                            <a href="#">Erkek Bakım</a>
+                        </li>
+                        <li>
+                            <a href="#">Ev &amp; Yaşam</a>
+                        </li>
+                        <li>
+                            <a href="#">Anne &amp; Bebek</a>
+                        </li>
+                        <li>
+                            <a class="highlighted" href="#">OUTLET</a>
+                        </li>
+                        <li>
+                            <a class="highlighted" href="#">Trendler</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+        </div>
+    </div>
+    <div style="height: 450px;" class="row-alt">
+        <section class="log-section">
+            <header class="doubled">
+                <span class="guide-title">Giriş Yap</span>
+            </header>
+            <div class="container">
+                <div class="form-area">
+                    <div class="row-alt">
+                        <div class="col-md-offset-4 col-md-4  col-sm-offset-4 col-sm-4 col-xs-12">
+                            <form id="app"
+                            @submit="checkForm"
+                            action="https://vuejs.org/"
+                            method="post"
+                            novalidate="true"
+                            style="width: 360px;">
+
+                                <div class="form-group">
+                                    <label for="email">E-Posta</label>
+                                    <input id="email" v-model="name" type="email" name="email"placeholder="E-Posta adresinizi giriniz">
+                                    <p v-for="error1 in error1" class="error-message">{{error1}}</p>
+                                </div>
+                                <div class="form-group pusher">
+                                    <label for="password">
+                                        <span>Şifre</span>
+                                        <a style="float: right;" href="#" class="guide-link">Şifremi Unuttum</a>
+                                    </label>
+                                    <input id="password" v-model="password" type="password" name="password" placeholder="Şifrenizi giriniz">
+                                    <p v-for="error2 in error2" class="error-message">{{error2}}</p>
+                                </div>
+                                <button type="submit" class="round-btns">Oturum Aç</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="footerBar" class="page-row">
+        <div class="row-alt">
+            <footer class="main-footer">
+                <div class="row-alt">
+                    <div class="oc-panel col-md-12" style="width: 1345px;">
+                        <div class="useful-bar">
+                            <div class="container" style="height: 45px;">
+                                <ul class="useful-links">
+                                    <li>
+                                        <a class="store">
+                                            <span class="text">Mağzalarımız</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="product-options">
+                                            <span class="text">Kolay İade</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="help">
+                                            <span class="text">Yardım ve Destek</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="contact">
+                                            <span class="text">İletişim</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-alt">
+                    <div class="oc-panel col-md-12">
+                        <span style="-webkit-box-sizing:border-box;">
+                            <div class="cc-rich-text" style="padding: 0;">
+                                <div class="footer-link-bar">
+                                    <div class="container relative">
+                                        <div class="row-alt">
+                                            <div class="col-md-2 col-sm-2 col-xs-12" style="padding: 0;">
+                                                <ul class="footer-links">
+                                                    <li><a href="#">Makyaj</a></li>
+                                                    <li><a href="#">Cilt Bakımı</a></li>
+                                                    <li><a href="#">Saç Bakımı</a></li>
+                                                    <li><a href="#">Sağlık & Hijyen</a></li>
+                                                    <li><a href="#">Parfüm ve Deodorant</a></li>
+                                                    <li><a href="#">Erkek Bakım</a></li>
+                                                    <li><a href="#">Ev & Yaşam</a></li>
+                                                    <li><a href="#">Anne & Bebek</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                <ul class="footer-links gap">
+                                                    <li><a href="#">Kampanyalar</a></li>
+                                                    <li><a href="#">Markalar</a></li>
+                                                    <li>&nbsp;</li>
+                                                    <li>&nbsp;</li>
+                                                </ul>
+                                                <ul class="links-w-icons cutter">
+                                                    <li><a href="#" class="stores"><img src="img/icons-store.png">Mağazalarımız</a></li>
+                                                    <li><a href="#" class="card"><img src="img/icons-card.png">Gratis Kart</a></li>
+                                                    <li><a href="#" class="catalog"><img src="img/index-24.png">Katalog</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                <h4>Gratis</h4>
+                                                <ul class="footer-links thinner">
+                                                    <li><a href="#">Hakkımızda</a></li>
+                                                    <li><a href="#">İletişim</a></li>
+                                                    <li><a href="#">Kariyer</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                <h4>Yardım Ve Destek</h4>
+                                                <ul class="footer-links thinner">
+                                                    <li><a href="#">Sipariş Süreci</a></li>
+                                                    <li><a href="#">Kolay İade</a></li>
+                                                    <li><a href="#">Üyelik</a></li>
+                                                    <li><a href="#">Tümü</a></li>
+                                                </ul>
+                                                <a class="call-us" href="tel:08502106900"><img style="width: 30px;" src="img/phone-64.png">0850 210 69 00</a>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                <h4>Bizi Takip Edin</h4>
+                                                <ul class="links-w-icons">
+                                                    <li><a class="facebook" href="https://www.facebook.com/Gratis/" target="_blank"><img src="img/facebook-old-30.png">Facebook</a></li>
+                                                    <li><a clas="instagram" href="https://www.instagram.com/gratistr/" target="_blank"><img src="img/instagram-50.png">İnstagram</a></li>
+                                                    <li><a class="twitter" href="https://www.twitter.com/gratistr/" target="_blank"><img src="img/twitter-16.png">Twitter</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                <h4>Uygulamamızı İndirin</h4>
+                                                <ul class="links-w-icons">
+                                                    <li><a href="#"><img src="img/apple-logo-30.png">App Store</a></li>
+                                                    <li><a href="#"><img src="img/google-play-30.png">Google Play</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="log-actions">
+                                            <span class="text">Gratis'e</span>
+                                            <div class="btn-group">
+                                                <a class="round-btns empty" href="login.html">Giriş Yap</a>
+                                                <a class="round-btns" style="color: #fff;" href="#">Üye Ol</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class="row-alt">
+                    <div class="oc-panel col-md-12" >
+                        <div class="cc-rich-text" style="padding: 0px; margin-top: 50px;">
+                            <div class="bottom-bar" style="height: 50px;" data-bindable-node="true">
+                                <div class="container">
+                                    <figure class="logo"><img alt="" src="img/logo-big.png"></figure>
+                                    <span class="copyright-text">Copyright © <span data-bind="text: (new Date()).getFullYear()">2019</span>, Gratis A.Ş.</span>
+
+                                    <ul class="bar-links">
+                                        <li><a class="security-link" data-target="#myModal1" data-toggle="modal" href="#" target="_blank">Gizlilik ve Güvenlik</a></li>
+                                        <li><a class="security-link" data-target="#myModal2" data-toggle="modal" href="#" target="_blank">Kullanım Koşulları</a></li>
+                                        <li><a href="https://e-sirket.mkk.com.tr/esir/Dashboard.jsp#/sirketbilgileri/17383" target="_blank">Bilgi Toplumu Hizmetleri</a></li>
+                                        <li><a class="security-link" data-href="/kvkk_bilgilendirme" data-target="#myModal4" data-toggle="modal" href="#" target="_blank">Yasal Uyarı KVKK Aydınlatma Metni</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>

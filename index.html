@@ -8,12 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
 </head>
-<body>
+<body >
+    
     <div class="header">
         <div class="navbar">
             <div class="row">
                 <div style="float: left; width: 50%;" class="row_yazı">
-                <!--<img style="height: 20px; width: 20px;padding-left: 50px;" src="img/icons-delivery.png">-->
                    <span style="color:#e0119d; font-size:12px; padding-left: 50px;opacity: .72;">75 TL üzeri alışverişlerinizde KARGO BEDAVA!</span>
                 </div>
                 <div class="row_list" >
@@ -58,17 +58,46 @@
                                     <span class="high-text">Giriş Yap</span>
                                     <span class="low-text">Üye Ol</span>
                                 </a>
+                                <div class="drop-content">
+                                    <i class="caret"></i>
+                                    <ul class="logged-drop">
+                                        <li  class="highlighted">
+                                            <a href="login.html" style="font-weight: bold; color: #470f72; border-color: #fff;">Giriş Yap</a>
+                                        </li>
+                                        <li class="highlighted">
+                                            <a href="register.html" style="font-weight: bold; color: #470f72; border-color: #fff;">Üye Ol</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Siparişlerim</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bildirimlerim</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ayarlarım</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mesajlarım</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Favorilerim</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <ul class="icons">
+                            <ul class="icons" id="deneme">
                                 <li>
-                                    <a class="favorites">
+                                    <a class="favorites"@click="plus">
                                         <img style="width: 26px; height: 26px;" class="heart" src="img/icons-heart.png">
                                     </a>
                                 </li>
                                 <div style="width: 2px; height: 28px; float: left;background:#000;opacity: .15;" class="before">.</div>
                                 <li>
                                     <div class="dropdown">
-                                        <button class="dropbtn"><img style="width: 30px; height: 30px;" src="img/icons-basket.png"></button>
+                                        <button class="dropbtn">
+                                            <img style="width: 30px; height: 30px;" src="img/icons-basket.png">
+                                            <i class="count">{{count}}</i>
+                                        </button>
                                             <div style="width: 305px; height: 129;" class="dropdown-content options-wrapper">
                                                 <div class="pricing">
                                                 <span class="text" >0 Ürün Fiyatı</span>
@@ -80,7 +109,7 @@
                                                     </span>
                                                 </g-price>
                                             </div>
-                                            <a href="/cart" class="round-btns empty" >Sepete Git</a>
+                                            <a href="#" class="round-btns empty" >Sepete Git</a>
                                         </div>
                                     </div>
                                 </li>
@@ -94,34 +123,34 @@
                 <div class="container">
                     <ul class="nav-list">
                        <li>
-                            <a data-bind="ccLink: {url: '/makyaj/kategori/501'}" href="#">Makyaj</a>
+                            <a href="#">Makyaj</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/cilt-bakim/kategori/502'}" href="#">Cilt Bakım</a>
+                            <a href="#">Cilt Bakım</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/sac-bakim/kategori/503'}" href="#">Saç Bakım</a>
+                            <a href="#">Saç Bakım</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/saglik-hijyen/kategori/506'}" href="#">Sağlık &amp; Hijyen</a>
+                            <a href="#">Sağlık &amp; Hijyen</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/parfum-deodorant/kategori/504'}" href="#">Parfüm &amp; Deodorant</a>
+                            <a href="#">Parfüm &amp; Deodorant</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/erkek-bakim/kategori/505'}" href="#">Erkek Bakım</a>
+                            <a href="#">Erkek Bakım</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/ev-yasam/kategori/508'}" href="#">Ev &amp; Yaşam</a>
+                            <a href="#">Ev &amp; Yaşam</a>
                         </li>
                         <li>
-                            <a data-bind="ccLink: {url: '/anne-bebek/kategori/507'}" href="#">Anne &amp; Bebek</a>
+                            <a href="#">Anne &amp; Bebek</a>
                         </li>
                         <li>
-                            <a class="highlighted" data-bind="ccLink: {url: '/outlet/kategori/510'}" href="#">OUTLET</a>
+                            <a class="highlighted" href="#">OUTLET</a>
                         </li>
                         <li>
-                            <a class="highlighted" data-bind="ccLink: {url: '/trendler'}" href="#">Trendler</a>
+                            <a class="highlighted" href="#">Trendler</a>
                         </li>
                     </ul>
                 </div>
@@ -129,43 +158,1834 @@
             </div>
         </div>
     </div>
-    
-    <div class="image-carousel">
+    <main class="page-row page-row-expanded" >
+        <!--Slider-->
         <div class="row-alt">
-            <image-slider class="carousel">
-                <transition-group name='fade' tag='div'>
-                    <div class="item" v-for="number in [currentNumber]":key='number'>
-                        <img style="width: 1366px; height: 285px;"
-                            :src="currentImage"
-                            v-on:mouseover="stopRotation"
-                            v-on:mouseout="startRotation"/>
-                    </div>
-                </transition-group>
-            </image-slider>
+            <div class="image-carousel">
+                <div class="row-alt">
+                    <image-slider class="carousel">
+                        <transition-group name='fade' tag='div'>
+                            <div class="item" v-for="number in [currentNumber]":key='number'>
+                                <img style="width: 1366px; height: 285px; margin-left: -85px;"
+                                    :src="currentImage"
+                                    v-on:mouseover="stopRotation"
+                                    v-on:mouseout="startRotation"/>
+                            </div>
+                        </transition-group>
+                    </image-slider>
+                </div>
+                <a class="carousel-control left"@click="prev" ></a>
+                <a class="carousel-control right"@click="next" ></a>
+            </div>
         </div>
-        <a class="carousel-control left"@click="prev" ></a>
-        <a class="carousel-control right"@click="next" ></a>
-    </div>
-
-    <div class="kartlar">
+        <!--Tablar-->
         <div class="row-alt">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="info-tickets cutted">
-                    <figure class="media pull-left">
-                        <img src="img/gratis-card.png" alt="Gratis Kart'a Neden Sahip Olmalıyım?">
-                    </figure>
-                    <div class="infos">
-                        <h4>Gratis Kart'a Neden Sahip Olmalıyım?</h4>
-                        <div class="buttons">
-                            <a class="round-btns empty">Detaylı Bilgi Al</a>
-                            <a class="round-btns">Üye Ol</a>
+            <div class="col-sm-12">
+                <div id="tabs" class="occ-top-selling-products">
+                    <h2 class="brush-title type2 high">
+                        <span>En Çok Satanlar</span>
+                    </h2>
+                    <ul class="modifier-nav type1 hidden-xs">
+                        <li><a v-on:click="activetab=1" v-bind:class="{ active:activetab ==1}">Tümü</a></li>
+                        <li><a v-on:click="activetab=2" v-bind:class="{ active:activetab ==2}">Makyaj</a></li>
+                        <li><a v-on:click="activetab=3" v-bind:class="{ active:activetab ==3}">Cilt Bakım</a></li>
+                        <li><a v-on:click="activetab=4" v-bind:class="{ active:activetab ==4}" >Saç Bakım</a></li>
+                        <li><a v-on:click="activetab=5" v-bind:class="{ active:activetab ==5}">Erkek Bakım</a></li>
+                        <li><a v-on:click="activetab=6" v-bind:class="{ active:activetab ==6}">Parfüm &amp; Deodorant</a></li>
+                        <li><a v-on:click="activetab=7" v-bind:class="{ active:activetab ==7}">Sağlık &amp; Hijyen</a></li>
+                        <li><a v-on:click="activetab=8" v-bind:class="{ active:activetab ==8}">Anne &amp; Bebek</a></li>
+                        <li><a v-on:click="activetab=9" v-bind:class="{ active:activetab ==9}">Ev &amp; Yaşam</a></li>
+                    </ul>
+                    <div class="content" >
+                        <div v-if="activetab===1" class="products-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="items active">
+                                    <g-product-card class="cc-product-item col-lg-3">
+                                        <div class="g-product-cards">
+                                            <div class="view">
+                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                <a class="search-product-link">
+                                                    <img class="bg-product-image" src="img/the-balm.png">
+                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                </a>
+                                                <div class="options hidden-xs">
+                                                    <a class="analyze">İncele</a>
+                                                    <a class="add-to-basket">Sepete Ekle</a>
+                                                </div>
+                                            </div>
+                                            <div class="infos">
+                                                <a href="#">
+                                                    <div>
+                                                        <h3 class="title">theBalm Mini Hot Allık</h3>
+                                                    </div>
+                                                </a>
+                                                <div class="rating">
+                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                </div>
+                                                <div class="not-on-sale">
+                                                    <div class="product-price">
+                                                        <div class ="sale-range">
+                                                            <div class="product-card-price clearfix">
+                                                                <g-price class="product-price">
+                                                                    <span class="gr-price">
+                                                                        <span class="gr-price__amount">39</span>
+                                                                        <span class="gr-price__fractional">,95</span>
+                                                                        <span class="gr-price__currency">TL</span>
+                                                                    </span>
+                                                                </g-price>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </g-product-card>
+                                </div>
+                                <div class="items active">
+                                        <g-product-card class="cc-product-item col-lg-3">
+                                            <div class="g-product-cards">
+                                                <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                    <a class="search-product-link">
+                                                        <img class="bg-product-image" src="img/arko.png">
+                                                    </a>
+                                                    <div class="options hidden-xs">
+                                                        <a class="analyze" href="#">İncele</a>
+                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                    </div>
+                                                </div>
+                                                <div class="infos">
+                                                    <a href="#">
+                                                        <div>
+                                                            <h3 class="title">Arko Nem Değerli Yağlar Avakado Krem 250 ml</h3>
+                                                        </div>
+                                                    </a>
+                                                    <div class="rating">
+                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                    </div>
+                                                    <div class="not-on-sale">
+                                                        <div class="product-price">
+                                                            <div class ="sale-range">
+                                                                <div class="product-card-price clearfix">
+                                                                    <g-price class="product-price">
+                                                                        <span class="gr-price">
+                                                                            <span class="gr-price__amount">15</span>
+                                                                            <span class="gr-price__fractional">,40</span>
+                                                                            <span class="gr-price__currency">TL</span>
+                                                                        </span>
+                                                                    </g-price>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </g-product-card>
+                                </div>
+                                <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src="img/syoss.png">
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title">Syoss Bukle Kontrolü Saç Köpüğü 250 ml</h3>
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount">37</span>
+                                                                                <span class="gr-price__fractional">,95</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                </div>
+                                <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src="img/theBalm-matte.png">
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title">theBalm Meet Matt(e) Hughes Liquid Lipstick Ruj Charming</h3>
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount">69</span>
+                                                                                    <span class="gr-price__fractional">,95</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="activetab===2" class="products-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src="img/the-balm.png">
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title">theBalm Mini Hot Allık</h3>
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount">39</span>
+                                                                                <span class="gr-price__fractional">,95</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                </div>
+                                <div class="items active">
+                                        <g-product-card class="cc-product-item col-lg-3">
+                                            <div class="g-product-cards">
+                                                <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                    <a class="search-product-link">
+                                                        <img class="bg-product-image" src="img/theBalm-matte.png">
+                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                    </a>
+                                                    <div class="options hidden-xs">
+                                                        <a class="analyze" href="#">İncele</a>
+                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                    </div>
+                                                </div>
+                                                <div class="infos">
+                                                    <a href="#">
+                                                        <div>
+                                                            <h3 class="title">theBalm Meet Matt(e) Hughes Liquid Lipstick Ruj Charming</h3>
+                                                        </div>
+                                                    </a>
+                                                    <div class="rating">
+                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                    </div>
+                                                    <div class="not-on-sale">
+                                                        <div class="product-price">
+                                                            <div class ="sale-range">
+                                                                <div class="product-card-price clearfix">
+                                                                    <g-price class="product-price">
+                                                                        <span class="gr-price">
+                                                                            <span class="gr-price__amount">69</span>
+                                                                            <span class="gr-price__fractional">,95</span>
+                                                                            <span class="gr-price__currency">TL</span>
+                                                                        </span>
+                                                                    </g-price>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </g-product-card>
+                                </div>
+                                <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src="img/eyeliner.jpg"><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title">theBalm Schwing Eyeliner</h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount">63</span>
+                                                                                <span class="gr-price__fractional">,95</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                </div>
+                                <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src="img/goldenrose.jpg"><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title">Golden Rose Velvet Matte Lipstick Ruj No:14</h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount">21</span>
+                                                                                    <span class="gr-price__fractional">,95</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="activetab===3" class="products-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src="img/arko.png">
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title">Arko Nem Değerli Yağlar Avakado Krem 250 ml</h3>
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount">15</span>
+                                                                                    <span class="gr-price__fractional">,40</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                </div>
+                                <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src="img/hindistancevizi1.jpg"><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title">The LifeCo Organik Hindistan Cevizi Yağı 337 ml</h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount">62</span>
+                                                                                    <span class="gr-price__fractional">,50</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                </div>
+                                <div class="items active">
+                                    <g-product-card class="cc-product-item col-lg-3">
+                                        <div class="g-product-cards">
+                                            <div class="view">
+                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                <a class="search-product-link">
+                                                    <img class="bg-product-image" src="img/krem2.jpg"><!--Resim-->
+                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                </a>
+                                                <div class="options hidden-xs">
+                                                    <a class="analyze" href="#">İncele</a>
+                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                </div>
+                                            </div>
+                                            <div class="infos">
+                                                <a href="#">
+                                                    <div>
+                                                        <h3 class="title">Himalaya Peeling Etkili Ceviz Özlü Scrub 75 ml</h3><!--Başlık-->
+                                                    </div>
+                                                </a>
+                                                <div class="rating">
+                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                </div>
+                                                <div class="not-on-sale">
+                                                    <div class="product-price">
+                                                        <div class ="sale-range">
+                                                            <div class="product-card-price clearfix">
+                                                                <g-price class="product-price">
+                                                                    <span class="gr-price">
+                                                                        <span class="gr-price__amount">9</span>
+                                                                        <span class="gr-price__fractional">,95</span>
+                                                                        <span class="gr-price__currency">TL</span>
+                                                                    </span>
+                                                                </g-price>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </g-product-card>
+                                </div>
+                                <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src="img/hindistancevizi2.jpg"><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title">Life In Hindistan Cevizi Yağı 330 ml</h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount">23</span>
+                                                                                            <span class="gr-price__fractional">,95</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="activetab===4" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div v-if="activetab===5" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div v-if="activetab===6" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div v-if="activetab===7" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div v-if="activetab===8" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div v-if="activetab===9" class="products-carousel carousel slide">
+                                <div class="carousel-inner">
+                                        <div class="items active">
+                                            <g-product-card class="cc-product-item col-lg-3">
+                                                <div class="g-product-cards">
+                                                    <div class="view">
+                                                        <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                        <a class="search-product-link">
+                                                            <img class="bg-product-image" src=""><!--Resim-->
+                                                            <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                        </a>
+                                                        <div class="options hidden-xs">
+                                                            <a class="analyze" href="#">İncele</a>
+                                                            <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="infos">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h3 class="title"></h3><!--Başlık-->
+                                                            </div>
+                                                        </a>
+                                                        <div class="rating">
+                                                            <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                        </div>
+                                                        <div class="not-on-sale">
+                                                            <div class="product-price">
+                                                                <div class ="sale-range">
+                                                                    <div class="product-card-price clearfix">
+                                                                        <g-price class="product-price">
+                                                                            <span class="gr-price">
+                                                                                <span class="gr-price__amount"></span>
+                                                                                <span class="gr-price__fractional">,</span>
+                                                                                <span class="gr-price__currency">TL</span>
+                                                                            </span>
+                                                                        </g-price>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                <g-product-card class="cc-product-item col-lg-3">
+                                                    <div class="g-product-cards">
+                                                        <div class="view">
+                                                            <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                            <a class="search-product-link">
+                                                                <img class="bg-product-image" src=""><!--Resim-->
+                                                                <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                            </a>
+                                                            <div class="options hidden-xs">
+                                                                <a class="analyze" href="#">İncele</a>
+                                                                <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infos">
+                                                            <a href="#">
+                                                                <div>
+                                                                    <h3 class="title"></h3><!--Başlık-->
+                                                                </div>
+                                                            </a>
+                                                            <div class="rating">
+                                                                <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                            </div>
+                                                            <div class="not-on-sale">
+                                                                <div class="product-price">
+                                                                    <div class ="sale-range">
+                                                                        <div class="product-card-price clearfix">
+                                                                            <g-price class="product-price">
+                                                                                <span class="gr-price">
+                                                                                    <span class="gr-price__amount"></span>
+                                                                                    <span class="gr-price__fractional">,</span>
+                                                                                    <span class="gr-price__currency">TL</span>
+                                                                                </span>
+                                                                            </g-price>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                    <g-product-card class="cc-product-item col-lg-3">
+                                                        <div class="g-product-cards">
+                                                            <div class="view">
+                                                                <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                <a class="search-product-link">
+                                                                    <img class="bg-product-image" src=""><!--Resim-->
+                                                                    <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                </a>
+                                                                <div class="options hidden-xs">
+                                                                    <a class="analyze" href="#">İncele</a>
+                                                                    <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="infos">
+                                                                <a href="#">
+                                                                    <div>
+                                                                        <h3 class="title"></h3><!--Başlık-->
+                                                                    </div>
+                                                                </a>
+                                                                <div class="rating">
+                                                                    <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                </div>
+                                                                <div class="not-on-sale">
+                                                                    <div class="product-price">
+                                                                        <div class ="sale-range">
+                                                                            <div class="product-card-price clearfix">
+                                                                                <g-price class="product-price">
+                                                                                    <span class="gr-price">
+                                                                                        <span class="gr-price__amount"></span>
+                                                                                        <span class="gr-price__fractional">,</span>
+                                                                                        <span class="gr-price__currency">TL</span>
+                                                                                    </span>
+                                                                                </g-price>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </g-product-card>
+                                        </div>
+                                        <div class="items active">
+                                                        <g-product-card class="cc-product-item col-lg-3">
+                                                            <div class="g-product-cards">
+                                                                <div class="view">
+                                                                    <a class="add-to-fav" href="#"><img style="width: 24px; height: 22px;" src="img/fav-button-off.jpg"></a>
+                                                                    <a class="search-product-link">
+                                                                        <img class="bg-product-image" src=""><!--Resim-->
+                                                                        <div class="product-text-sticker">Sadece Gratis'te</div>
+                                                                    </a>
+                                                                    <div class="options hidden-xs">
+                                                                        <a class="analyze" href="#">İncele</a>
+                                                                        <a class="add-to-basket" href="#">Sepete Ekle</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="infos">
+                                                                    <a href="#">
+                                                                        <div>
+                                                                            <h3 class="title"></h3><!--Başlık-->
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="rating">
+                                                                        <a class="write-link" href="#">İlk Yorumu Sen Yap</a>
+                                                                    </div>
+                                                                    <div class="not-on-sale">
+                                                                        <div class="product-price">
+                                                                            <div class ="sale-range">
+                                                                                <div class="product-card-price clearfix">
+                                                                                    <g-price class="product-price">
+                                                                                        <span class="gr-price">
+                                                                                            <span class="gr-price__amount"></span>
+                                                                                            <span class="gr-price__fractional">,</span>
+                                                                                            <span class="gr-price__currency">TL</span>
+                                                                                        </span>
+                                                                                    </g-price>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </g-product-card>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!--Kartlar-->
+        <div style="margin-top: 250px;" class="row-alt">
+            <div class="kartlar">
+                <div class="row-alt">
+                    <div style="width: 500px; margin-left: 50px;" class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="info-tickets cutted">
+                            <figure class="media pull-left">
+                                <img src="img/gratis-card.png" alt="Gratis Kart'a Neden Sahip Olmalıyım?">
+                            </figure>
+                            <div class="infos">
+                                <h4>Gratis Kart'a Neden Sahip Olmalıyım?</h4>
+                                <div class="buttons">
+                                   <a class="round-btns empty">Detaylı Bilgi Al</a>
+                                   <a class="round-btns">Üye Ol</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 550px;" class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="info-tickets">
+                            <figure class="media pull-top">
+                                <img src="img/ekim_insert_kapak_updateb.jpg">
+                            </figure>
+                            <div class="infos">
+                                <h4>Ekim Ayı Kataloğu</h4>
+                                <div class="buttons">
+                                    <a style="color: white;" class="round-btns" href="#">Görüntüle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sadece Gratiste Kısmı-->
+        <div class="row-alt">
+            <div class="oc-panel col-md-12" style="margin-left: -115px;">
+                <span>
+                    <div class="cc-rich-text" style="padding: 0px;">
+                        
+                        <section class="sections theme-gray small-spaces">
+                            <div class="container">
+                                <h3 class="high-title">SADECE GRATİS'TE</h3>
+                                <ul class="popular-brands">
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_beaulis.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_benri.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_bee_beauty.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_eklips.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_lifein.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_thebalm.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_wetnwild.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logosu_himalaya.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li class="brand-logo-boxes"><a href="#"><img alt="" src="img/marka_logo_inecto.png" style="height: 81px; width: 130px;"> </a></li>
+                                    <li><a class="show-all" href="#">Tüm Markaları Gör</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <!--Kategori Kartları-->
+        <div class="row-alt">
+            <div class="oc-panel col-md-12" style="margin-left: -80px; margin-bottom: 40px;">
+                <span>
+                    <div class="cc-rich-text" style="padding: 0px;">
+                        <section class="sections brush-headed type1 mobile-hidden featured-categories">
+                            <div class="container">
+                                <h2 class="öne-çıkan">
+                                    <span>Öne Çıkan Kategoriler</span>
+                                </h2>
+                                    <div class="row-alt">
+                                        <div class="col-md-3 col-sm-3 col-xs-12"style="width:262px;">
+                                            <a class="category-card type1" href="#">
+                                                <img alt="" src="img/sac001.png"> 
+                                                <span class="title">Saç Bakım</span> 
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12"style="width:262px;">
+                                            <a class="category-card type2" href="#">
+                                                <img alt="" src="img/makyajkategori.png"> 
+                                                <span class="title">Makyaj</span> 
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12"style="width:262px;">
+                                            <a class="category-card type1" href="#">
+                                                <img alt="" src="img/saglik001.png"> 
+                                                <span class="title">Sağlık &amp; Hijyen</span> 
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12"style="width:262px;">
+                                            <a class="category-card type2" href="#">
+                                                <img alt="" src="img/cilt001.png"> 
+                                                <span class="title">Cilt Bakım</span> 
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </section>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </main>
+    <footer id="footerBar" class="page-row">
+            <div class="row-alt">
+                <footer class="main-footer">
+                    <div class="row-alt">
+                        <div class="oc-panel col-md-12" style="width: 1345px;">
+                            <div class="useful-bar">
+                                <div class="container" style="height: 45px;">
+                                    <ul class="useful-links">
+                                        <li>
+                                            <a class="store">
+                                                <span class="text">Mağzalarımız</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="product-options">
+                                                <span class="text">Kolay İade</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="help">
+                                                <span class="text">Yardım ve Destek</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="contact">
+                                                <span class="text">İletişim</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-alt">
+                        <div class="oc-panel col-md-12">
+                            <span style="-webkit-box-sizing:border-box;">
+                                <div class="cc-rich-text" style="padding: 0;">
+                                    <div class="footer-link-bar">
+                                        <div class="container relative">
+                                            <div class="row-alt">
+                                                <div class="col-md-2 col-sm-2 col-xs-12" style="padding: 0;">
+                                                    <ul class="footer-links">
+                                                        <li><a href="#">Makyaj</a></li>
+                                                        <li><a href="#">Cilt Bakımı</a></li>
+                                                        <li><a href="#">Saç Bakımı</a></li>
+                                                        <li><a href="#">Sağlık & Hijyen</a></li>
+                                                        <li><a href="#">Parfüm ve Deodorant</a></li>
+                                                        <li><a href="#">Erkek Bakım</a></li>
+                                                        <li><a href="#">Ev & Yaşam</a></li>
+                                                        <li><a href="#">Anne & Bebek</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                    <ul class="footer-links gap">
+                                                        <li><a href="#">Kampanyalar</a></li>
+                                                        <li><a href="#">Markalar</a></li>
+                                                        <li>&nbsp;</li>
+                                                        <li>&nbsp;</li>
+                                                    </ul>
+                                                    <ul class="links-w-icons cutter">
+                                                        <li><a href="#" class="stores"><img src="img/icons-store.png">Mağazalarımız</a></li>
+                                                        <li><a href="#" class="card"><img src="img/icons-card.png">Gratis Kart</a></li>
+                                                        <li><a href="#" class="catalog"><img src="img/index-24.png">Katalog</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                    <h4>Gratis</h4>
+                                                    <ul class="footer-links thinner">
+                                                        <li><a href="#">Hakkımızda</a></li>
+                                                        <li><a href="#">İletişim</a></li>
+                                                        <li><a href="#">Kariyer</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                    <h4>Yardım Ve Destek</h4>
+                                                    <ul class="footer-links thinner">
+                                                        <li><a href="#">Sipariş Süreci</a></li>
+                                                        <li><a href="#">Kolay İade</a></li>
+                                                        <li><a href="#">Üyelik</a></li>
+                                                        <li><a href="#">Tümü</a></li>
+                                                    </ul>
+                                                    <a class="call-us" href="tel:08502106900"><img style="width: 30px;" src="img/phone-64.png">0850 210 69 00</a>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                    <h4>Bizi Takip Edin</h4>
+                                                    <ul class="links-w-icons">
+                                                        <li><a class="facebook" href="https://www.facebook.com/Gratis/" target="_blank"><img src="img/facebook-old-30.png">Facebook</a></li>
+                                                        <li><a clas="instagram" href="https://www.instagram.com/gratistr/" target="_blank"><img src="img/instagram-50.png">İnstagram</a></li>
+                                                        <li><a class="twitter" href="https://www.twitter.com/gratistr/" target="_blank"><img src="img/twitter-16.png">Twitter</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-12"style="padding: 0;">
+                                                    <h4>Uygulamamızı İndirin</h4>
+                                                    <ul class="links-w-icons">
+                                                        <li><a href="#"><img src="img/apple-logo-30.png">App Store</a></li>
+                                                        <li><a href="#"><img src="img/google-play-30.png">Google Play</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="log-actions">
+                                                <span class="text">Gratis'e</span>
+                                                <div class="btn-group">
+                                                    <a class="round-btns empty" href="login.html">Giriş Yap</a>
+                                                    <a class="round-btns" style="color: #fff;" href="#">Üye Ol</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row-alt">
+                        <div class="oc-panel col-md-12" >
+                            <div class="cc-rich-text" style="padding: 0px; margin-top: 50px;">
+                                <div class="bottom-bar" style="height: 50px;" data-bindable-node="true">
+                                    <div class="container">
+                                        <figure class="logo"><img alt="" src="img/logo-big.png"></figure>
+                                        <span class="copyright-text">Copyright © <span data-bind="text: (new Date()).getFullYear()">2019</span>, Gratis A.Ş.</span>
     
-    
+                                        <ul class="bar-links">
+                                            <li><a class="security-link" data-target="#myModal1" data-toggle="modal" href="#" target="_blank">Gizlilik ve Güvenlik</a></li>
+                                            <li><a class="security-link" data-target="#myModal2" data-toggle="modal" href="#" target="_blank">Kullanım Koşulları</a></li>
+                                            <li><a href="https://e-sirket.mkk.com.tr/esir/Dashboard.jsp#/sirketbilgileri/17383" target="_blank">Bilgi Toplumu Hizmetleri</a></li>
+                                            <li><a class="security-link" data-href="/kvkk_bilgilendirme" data-target="#myModal4" data-toggle="modal" href="#" target="_blank">Yasal Uyarı KVKK Aydınlatma Metni</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
